@@ -38,6 +38,13 @@ li {
     text-decoration: none;
     font-family: jetbrains;
     color: #ff8239;
+    transition: color .5s;
+
+}
+
+.burger > ul > li > a:hover {
+    color: #e66114;
+    /* font-weight: bold; */
 }
 
 .hamburger {
