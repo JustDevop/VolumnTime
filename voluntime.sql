@@ -181,7 +181,6 @@ CREATE TABLE `utilisateur` (
   `adresse` text DEFAULT NULL,
   `ville` varchar(100) DEFAULT NULL,
   `code_postal` varchar(10) DEFAULT NULL,
-  `pays` varchar(100) DEFAULT NULL,
   `date_inscription` datetime DEFAULT current_timestamp(),
   `handicap` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
