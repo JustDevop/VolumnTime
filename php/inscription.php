@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription VolunTime</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleCo.css">
+    <script>
+        function toggleHandicapField() {
+            var checkbox = document.getElementById('handicap_checkbox');
+            var handicapField = document.getElementById('handicap_field');
+            if (checkbox.checked) {
+                handicapField.style.display = 'block';
+            } else {
+                handicapField.style.display = 'none';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -20,6 +31,10 @@
                 <div class="form-group">
                     <label for="prenom">Prénom</label>
                     <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" pattern="\d{10}" maxlength="10" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -59,16 +74,34 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="localisation">Localisation</label>
-                    <input type="text" id="localisation" name="localisation" required>
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" required>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" required>
+                </div>
+                <div class="form-group">
+                    <label for="postal">Code Postal</label>
+                    <input type="number" id="postal" name="postal" required>
                 </div>
                 <div class="form-group">
                     <label for="disponibilite">Disponibilité</label>
                     <select id="disponibilite" name="disponibilite" required>
                         <option value="semaine">Semaine</option>
                         <option value="weekend">Week-end</option>
+                        <option value="weekend">Semaine et Week-end</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="handicap_checkbox">Êtes-vous handicapé ?</label>
+                    <input type="checkbox" id="handicap_checkbox" name="handicap_checkbox" onclick="toggleHandicapField()">
+                </div>
+                <div class="form-group" id="handicap_field" style="display: none;">
+                    <label for="description_handicap">Veuillez préciser votre handicap</label>
+                    <input type="text" id="description_handicap" name="description_handicap">
+                </div>
+        
                 <button type="submit" class="btn">S'inscrire</button>
             </form>
         </div>

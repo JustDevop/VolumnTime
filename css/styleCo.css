@@ -20,6 +20,7 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
+    margin-top: 20px; /* Ajout d'une marge supérieure */
 }
 
 form {
@@ -34,6 +35,7 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
+    color: #333; /* Assurez-vous que le texte est visible */
 }
 
 input, select {
@@ -41,6 +43,7 @@ input, select {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
+    box-sizing: border-box; /* Assurez-vous que les champs remplissent la largeur */
 }
 
 select[multiple] {
@@ -63,4 +66,28 @@ button.btn, a.btn {
 
 button.btn:hover, a.btn:hover {
     background-color: #ff3b2f;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
 }
