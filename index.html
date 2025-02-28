@@ -7,17 +7,23 @@
     <title>VolumnTime</title>
 </head>
 <body>
-    <div class="burger-menu">
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
-        <nav class="menu">
+    <header>
+        <nav class="burger">
+            <span class="hamburger">☰</span>
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="php/conversation.php">Discussions</a></li>
+                <li><a href="">Favoris</a></li>
+                <li><a href="php/dashboard.php">Contacts</a></li>
             </ul>
         </nav>
-    </div>
+        <div class="profil">
+            <img class="iconeProfil" src="asset/icones/icone-profil.png">
+        </div>
+        <div class="loupe">
+            <img class="iconeLoupe" src="asset/icones/icone-loupe.png">
+        </div>
+    </header>
+    
+    <script src="Js/menuhamburger.js"></script>
 </body>
 </html>
