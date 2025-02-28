@@ -15,7 +15,9 @@
     $code_postal = strip_tags($_POST["code_postal"]);
     $disponibilite = strip_tags($_POST["disponibilite"]);
     $role = "1"; // Role par défaut
+    $disponibilite = strip_tags($_POST["disponibilite"]);
     $handicap = strip_tags($_POST["handicap"]);
+    $description_handicap = strip_tags($_POST["description_handicap"]);
 
     // Vérification des doublons
     $verif = false;
