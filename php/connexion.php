@@ -11,7 +11,7 @@
     </header>
     <form action="identification.php" method="POST">
         <div class="form-group">
-            <label for="email">Identifiant ou Email</label>
+            <label for="email">Identifiant</label>
             <input type="text" id="email" name="ID" required>
         </div>
         <div class="form-group">

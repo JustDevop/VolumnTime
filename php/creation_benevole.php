@@ -1,43 +1,65 @@
 <?php
     include("connect_bdd.php");
-    //Avant de faire quoi que ce soit, vérif si on est bien connecté avec le bon rôle
-    if($_SESSION["role"] != 0){
-        $_SESSION['message'] = "Vous n'avez pas la permission pour accéder à cette page.";
-        header("location: SAE203.php?error=wrong_role");
-        exit();
-    }
 
+    // Récupération des données du formulaire
+    $nom = strip_tags($_POST["nom"]);
+    $prenom = strip_tags($_POST["prenom"]);
+    $mail = strip_tags($_POST["email"]);
+    $identifiant = strip_tags($_POST["identifiant"]);
+    $password = strip_tags(sha1($_POST["password"]));
+    $sexe = strip_tags($_POST["sexe"]);
+    $telephone = strip_tags($_POST["telephone"]);
+    $interets = implode(",", $_POST["interets"]);
+    $ville = strip_tags($_POST["ville"]);
+    $adresse = strip_tags($_POST["adresse"]);
+    $code_postal = strip_tags($_POST["code_postal"]);
+    $disponibilite = strip_tags($_POST["disponibilite"]);
+    $role = "1"; // Role par défaut
+    $disponibilite = strip_tags($_POST["disponibilite"]);
+    $handicap = strip_tags($_POST["handicap"]);
+    $description_handicap = strip_tags($_POST["description_handicap"]);
 
-    //Dans l'état, le code marche, il faut juste vérif pour les doublons - vérif le nom de famille ET/OU le login
-    $first_name = strip_tags($_POST["first_name"]);
-    $name = strip_tags($_POST["name"]);
-    $login_user = strip_tags($_POST["login_user"]);
-    $password_user = strip_tags(sha1($_POST["password_user"]));
-    $mail = strip_tags($_POST["mail"]);
-    $role = strip_tags($_POST["role"]);
+    // Vérification des doublons
     $verif = false;
-    try
-    {
-        $sql ="INSERT INTO sae203_user (first_name,name,login_user,password_user,mail,role_user) VALUES (:first_name,:name,:login_user,:password_user,:mail,:role_user)";
-        $compte = $db -> prepare($sql);
-        $compte -> execute(array(
-            'first_name' => "$first_name",
-            'name' => "$name",
-            'login_user' => "$login_user",
-            'password_user' => $password_user,
-            'mail'=> "$mail",
-            'role_user'=> $role
+    try {
+        $sql = "SELECT COUNT(*) FROM utilisateur WHERE nom = :nom OR email = :email";
+        $stmt = $db->prepare($sql);
+        $stmt->execute(array(
+            'nom' => $nom,
+            'email' => $mail
         ));
-        $verif = !$verif;
-    }
-    catch(Exception $e)
-    {
-        die('Erreur'. $e -> getMessage());
+        $count = $stmt->fetchColumn();
+
+        if ($count == 0) {
+            // Insertion des données dans la base de données
+            $sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, role, tagUsers, telephone, adresse, ville, code_postal, pays, date_inscription, handicap) 
+                    VALUES (:nom, :prenom, :email, :mot_de_passe, :role, :tagUsers, :telephone,:adresse, :ville, :code_postal, :pays, NOW(), :handicap)";
+            $compte = $db->prepare($sql);
+            $compte->execute(array(
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $mail,
+                'mot_de_passe' => $password,
+                'role' => $role,
+                'telephone' => $telephone,
+                'tagUsers' => $interets,
+                'adresse' => $localisation,
+                'ville' => $ville,	
+                'code_postal' => $code_postal,
+                'handicap' => $handicap
+            ));
+            $verif = true;
+        } else {
+            $_SESSION['message'] = 'Un utilisateur avec ce nom ou email existe déjà.';
+            header('Location: inscription.php?error=duplicate');
+            exit();
+        }
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
     }
 
-    if($verif)    
-    {
-        $_SESSION['message'] = 'L\'utilisateur à bien été crée.';
-        header('Location: admin.php?succes=account_created');
+    if ($verif) {
+        $_SESSION['message'] = 'L\'utilisateur a bien été créé.';
+        header('Location: admin.php?success=account_created');
         exit();
     }
