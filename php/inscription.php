@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription VolunTime</title>
     <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleCo.css">
-    <script>
-        function toggleHandicapField() {
-            var checkbox = document.getElementById('handicap_checkbox');
-            var handicapField = document.getElementById('handicap_field');
-            if (checkbox.checked) {
-                handicapField.style.display = 'block';
-            } else {
-                handicapField.style.display = 'none';
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -107,5 +96,6 @@
         </div>
         <p>Déjà un compte ? <a href="connexion.php"> Connectez vous</a></p>
     </main>
+    <script src="/VolunTime/VolumnTime/Js/inscription.js"></script>
 </body>
 </html>
