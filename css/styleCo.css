@@ -5,8 +5,8 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* Align items at the top */
+    min-height: 100vh;
 }
 
 header {
@@ -14,7 +14,7 @@ header {
     margin-bottom: 20px;
 }
 
-.signup-container, .recap-container {
+.signup-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
