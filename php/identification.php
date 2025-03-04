@@ -1,5 +1,5 @@
 <?php
-    include("connect_bdd.php");
+    include("include\connect_bdd.php");
 
     $user_id = strip_tags($_POST["ID"]);
     $user_pwd = strip_tags(sha1($_POST["password"]));
@@ -16,7 +16,7 @@
         {
             $_SESSION["login"] = $row["id_utilisateur"];
             $_SESSION["password"] = $row["mot_de_passe"];
-            $_SESSION["id"] = $row["email"];
+            //$_SESSION["id"] = $row["email"];
             $connexion = true;
             break;
         }

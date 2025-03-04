@@ -8,6 +8,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
+/*
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
 // Récupérer les conversations de l'utilisateur
@@ -22,7 +23,10 @@ $stmt->bind_param('ii', $id_utilisateur, $id_utilisateur);
 $stmt->execute();
 $result = $stmt->get_result();
 $conversations = $result->fetch_all(MYSQLI_ASSOC);
+
+*/
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -56,6 +60,9 @@ $conversations = $result->fetch_all(MYSQLI_ASSOC);
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <h2>Vous avez une association ? Faites la demande pour l'ajouter</h2>
+        <!-- Ici il y aura le code pour faire la demande -->
     </main>
+
 </body>
 </html>
