@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Inscription à VolunTime</h1>
+        <h1>Inscription</h1>
     </header>
     <main>
         <div class="signup-container">

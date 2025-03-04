@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    background-color: #eeeeee;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align items at the top */
+    align-items: center; /* Align items at the center vertically */
+    flex-direction: column; /* Arrange items in a column */
     min-height: 100vh;
 }
 
@@ -20,7 +21,7 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
-    margin-top: 20px; /* Ajout d'une marge supérieure */
+    margin-top: 20px; /* Ajout d'une marge supérieure pour descendre le formulaire */
 }
 
 form {
@@ -52,7 +53,7 @@ select[multiple] {
 
 button.btn, a.btn {
     padding: 10px;
-    background-color: #ff6f61;
+    background-color: #ff8239;
     color: white;
     border: none;
     border-radius: 5px;
@@ -65,7 +66,7 @@ button.btn, a.btn {
 }
 
 button.btn:hover, a.btn:hover {
-    background-color: #ff3b2f;
+    background-color: #ff8239;
 }
 
 input[type="radio"] {
@@ -78,13 +79,24 @@ input[type="radio"] {
     margin-bottom: 5px;
 }
 
+.form-group.radio-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group.radio-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
 p {
     text-align: center;
     margin-top: 20px;
 }
 
 p a {
-    color: #ff6f61;
+    color: #ff8239;
     text-decoration: none;
 }
 
