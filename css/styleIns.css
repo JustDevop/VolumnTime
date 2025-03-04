@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Align items at the center vertically */
+    flex-direction: column; /* Arrange items in a column */
     min-height: 100vh;
 }
 
@@ -15,12 +15,16 @@ header {
     margin-bottom: 20px;
 }
 
-form {
+.signup-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
+    margin-top: 20px; /* Ajout d'une marge supérieure pour descendre le formulaire */
+}
+
+form {
     display: flex;
     flex-direction: column;
 }
@@ -32,18 +36,22 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #333;
+    color: #333; /* Assurez-vous que le texte est visible */
 }
 
-input {
+input, select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Assurez-vous que les champs remplissent la largeur */
 }
 
-button.btn {
+select[multiple] {
+    height: auto;
+}
+
+button.btn, a.btn {
     padding: 10px;
     background-color: #ff8239;
     color: white;
@@ -57,8 +65,29 @@ button.btn {
     margin-top: 10px;
 }
 
-button.btn:hover {
-    background-color: #ff3b2f;
+button.btn:hover, a.btn:hover {
+    background-color: #ff8239;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.form-group.radio-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group.radio-group div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
 }
 
 p {
