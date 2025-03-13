@@ -23,6 +23,10 @@
                     <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom']); ?>" required>
                 </div>
                 <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" pattern="\d{10}" maxlength="10" value="<?php echo htmlspecialchars($_POST['telephone']); ?>" required>
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>" required>
                 </div>
@@ -56,19 +60,46 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="localisation">Localisation</label>
-                    <input type="text" id="localisation" name="localisation" value="<?php echo htmlspecialchars($_POST['localisation']); ?>" required>
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" name="ville" value="<?php echo htmlspecialchars($_POST['ville']); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" value="<?php echo htmlspecialchars($_POST['adresse']); ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="postal">Code Postal</label>
+                    <input type="number" id="postal" name="postal" value="<?php echo htmlspecialchars($_POST['postal']); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="disponibilite">Disponibilité</label>
                     <select id="disponibilite" name="disponibilite" required>
                         <option value="semaine" <?php if ($_POST['disponibilite'] == 'semaine') echo 'selected'; ?>>Semaine</option>
                         <option value="weekend" <?php if ($_POST['disponibilite'] == 'weekend') echo 'selected'; ?>>Week-end</option>
+                        <option value="semaine_weekend" <?php if ($_POST['disponibilite'] == 'semaine_weekend') echo 'selected'; ?>>Semaine et Week-end</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="handicap_checkbox">Êtes-vous handicapé ?</label>
+                    <input type="checkbox" id="handicap_checkbox" name="handicap_checkbox" <?php if (isset($_POST['handicap_checkbox'])) echo 'checked'; ?> onclick="toggleHandicapField()">
+                </div>
+                <div class="form-group" id="handicap_field" style="<?php if (!isset($_POST['handicap_checkbox'])) echo 'display: none;'; ?>">
+                    <label for="description_handicap">Veuillez préciser votre handicap</label>
+                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" required><?php echo htmlspecialchars($_POST['description_handicap']); ?></textarea>
                 </div>
                 <button type="submit" class="btn">Confirmer</button>
             </form>
         </div>
     </main>
+    <script>
+        function toggleHandicapField() {
+            var handicapField = document.getElementById('handicap_field');
+            if (document.getElementById('handicap_checkbox').checked) {
+                handicapField.style.display = 'block';
+            } else {
+                handicapField.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
