@@ -197,6 +197,18 @@ CREATE TABLE `utilisateur_competence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Structure de la table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id_utilisateur` int(11) NOT NULL,
+  `id_contact` int(11) NOT NULL,
+  PRIMARY KEY (`id_utilisateur`, `id_contact`),
+  FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE,
+  FOREIGN KEY (`id_contact`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
 -- Index pour les tables déchargées
 --
 
