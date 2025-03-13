@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion VolunTime</title>
-    <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleCo.css">
+    <link rel="stylesheet" href="../css/styleCo.css">
 </head>
 <body>
     <header>
