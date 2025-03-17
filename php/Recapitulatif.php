@@ -13,7 +13,7 @@
     <main>
         <div class="recap-container">
             <h2>Vérifiez et modifiez vos informations si nécessaire :</h2>
-            <form action="confirmation.php" method="POST">
+            <form action="creation_benevole.php" method="POST">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($_POST['nom']); ?>" required>

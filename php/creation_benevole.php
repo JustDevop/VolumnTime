@@ -60,6 +60,6 @@
 
     if ($verif) {
         $_SESSION['message'] = 'L\'utilisateur a bien été créé.';
-        header('Location: admin.php?success=account_created');
+        header('Location: contact.php');
         exit();
     }

@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="signup-container">
-            <form action="creation_benevole.php" method="POST">
+            <form action="Recapitulatif.php" method="POST">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" id="nom" name="nom" placeholder="Sylvain" required>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="form-group" id="handicap_field" style="display: none;">
                     <label for="description_handicap">Veuillez préciser votre handicap</label>
-                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" required></textarea>
+                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" ></textarea>
                 </div>
         
                 <button type="submit" class="btn">S'inscrire</button>
@@ -98,5 +98,15 @@
         <p>Déjà un compte ? <a href="connexion.php"> Connectez vous</a></p>
     </main>
     <script src="/VolunTime/VolumnTime/Js/inscription.js"></script>
+    <script>
+        function toggleHandicapField() {
+            var handicapField = document.getElementById('handicap_field');
+            if (document.getElementById('handicap_checkbox').checked) {
+                handicapField.style.display = 'block';
+            } else {
+                handicapField.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

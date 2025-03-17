@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleContact.css" >
+    <link rel="stylesheet" href="../css/styleContact.css" >
     <title>VolumnTime</title>
 </head>
 <body>
