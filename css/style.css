@@ -129,8 +129,8 @@ h1 b {
 .une {
     width: 20%;
     float: right;
-    margin-top: -20.5%;
-    margin-right: 26%;
+    margin-top: -19%;
+    margin-right: 24.4%;
 }
 
 .une > img {
@@ -138,23 +138,23 @@ h1 b {
     width: 75%;
 }
 
-/* .deux {
-    width: 20%;
+.deux {
+    width: 17.6%;
     float: right;
-    margin-top: -20.5%;
-    margin-right: 26%;
+    margin-top: -19%;
+    margin-right: 11%;
 }
 
 .deux > img {
     border-radius: 10px;
     width: 75%;
-} */
+}
 
 .trois {
-    width: 60%;
+    width: 57%;
     float: right;
-    margin-top: -26.5%;
-    margin-right: 15.5%;
+    margin-top: -8.7%;
+    margin-right: 15.4%;
 }
 
 .trois > img {
