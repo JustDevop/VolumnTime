@@ -119,7 +119,7 @@ h1 {
 
 .listecontact p {
     background-color: #eee;
-    padding: 10px 20px;
+    padding: 15px 20px;
     margin: 10px 0;
     border-radius: 5px;
     width: 60%;
@@ -151,11 +151,11 @@ h1 {
 }
 
 .listecontact p:hover .icons img.une {
-    content: url('/VolunTime/VolumnTime/asset/icones/messager-blanc.png'); /* Chemin de l'image blanche */
+    content: url('../asset/icones/messager-blanc.png'); /* Chemin de l'image blanche */
 }
 
 .listecontact p:hover .icons img:not(.une) {
-    content: url('/VolunTime/VolumnTime/asset/icones/icone-profil-blanc.png'); /* Chemin de l'image blanche */
+    content: url('../asset/icones/icone-profil-blanc.png'); /* Chemin de l'image blanche */
 }
 
 .listecontact .icons .une {
