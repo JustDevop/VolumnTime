@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleContact.css" >
+    <title>VolumnTime - Contact</title>
     <link rel="stylesheet" href="../css/styleContact.css" >
     <title>VolumnTime</title>
 </head>
@@ -32,12 +34,12 @@
     </div>
 
     <section>
-        <div class="musique">
-            <p>Benjamin</p>
-            <p>Corentin</p>
-            <p>Justine</p>
-            <p>Noémie</p>
-            <p>Shirley</p>
+        <div class="listecontact">
+            <p>Benjamin <span class="icons"><img class="une" src="/VolunTime/VolumnTime/asset/icones/messager.png" alt="Messager"><img src="/VolunTime/VolumnTime/asset/icones/icone-profil.png" alt="Profil"></span></p>
+            <p>Corentin <span class="icons"><img class="une" src="/VolunTime/VolumnTime/asset/icones/messager.png" alt="Messager"><img src="/VolunTime/VolumnTime/asset/icones/icone-profil.png" alt="Profil"></span></p>
+            <p>Justine <span class="icons"><img class="une" src="/VolunTime/VolumnTime/asset/icones/messager.png" alt="Messager"><img src="/VolunTime/VolumnTime/asset/icones/icone-profil.png" alt="Profil"></span></p>
+            <p>Noémie <span class="icons"><img class="une" src="/VolunTime/VolumnTime/asset/icones/messager.png" alt="Messager"><img src="/VolunTime/VolumnTime/asset/icones/icone-profil.png" alt="Profil"></span></p>
+            <p>Shirley <span class="icons"><img class="une" src="/VolunTime/VolumnTime/asset/icones/messager.png" alt="Messager"><img src="/VolunTime/VolumnTime/asset/icones/icone-profil.png" alt="Profil"></span></p>
         </div>
     </section>
 </body>
