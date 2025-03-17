@@ -97,7 +97,7 @@
         </div>
         <p>Déjà un compte ? <a href="connexion.php"> Connectez vous</a></p>
     </main>
-    <script src="/VolunTime/VolumnTime/Js/inscription.js"></script>
+    <script src="../Js/inscription.js"></script>
     <script>
         function toggleHandicapField() {
             var handicapField = document.getElementById('handicap_field');
