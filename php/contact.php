@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/VolunTime/VolumnTime/css/styleContact.css" >
     <title>VolumnTime - Contact</title>
+    <link rel="stylesheet" href="../css/styleContact.css" >
+    <title>VolumnTime</title>
 </head>
 <body>
     <header>

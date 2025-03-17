@@ -1,12 +1,27 @@
 html, body {
     background-color: #eeeeee;
+    padding: 0;
+    margin: 0;
+}
+
+/*POLICE*/
+@font-face { 
+    font-family: Creato;
+    src: url(../asset/police/CreatoDisplay-Thin.otf);
 }
 
 @font-face { 
-    font-family: jetbrains;
-    src: url(../asset/police/JetBrainsMono-ExtraLight.ttf);
+    font-family: Neatly;
+    src: url(../asset/police/KGNeatlyPrintedSpaced.ttf);
 }
 
+@font-face { 
+    font-family: Nightblows;
+    src: url(../asset/police/Nightblows.otf);
+}
+
+
+/*HEADER*/
 /*MENU BURGER*/
 ul {
     display: none;
@@ -75,4 +90,75 @@ li {
     float: right;
     margin-top: 1%;
     margin-right: 0.8%;
+}
+/*FIN DU HEADER*/
+
+/*SECTION 1*/
+.about > .titre {
+    width: 30%;
+    height: 200px;
+    margin-left: 6%;
+    padding-top: 3%;
+}
+
+h1 {
+    font-size: 400%;
+    font-family: Nightblows;
+    letter-spacing: 2px;
+    font-weight: 300; 
+    color: #b8f05f;
+    margin-left: 40px;
+}
+
+h1 b {
+    font-weight: normal;
+    text-decoration: none;
+    color: #7ad6bc;
+}
+
+.about > .texte > p {
+    width: 34%;
+    font-family: Creato;
+    color: #000000;
+    letter-spacing: 2px;
+    text-align: justify;
+    margin-left: 8.8%;
+}
+
+/*SECTION 2*/
+.une {
+    width: 20%;
+    float: right;
+    margin-top: -19%;
+    margin-right: 24.4%;
+}
+
+.une > img {
+    border-radius: 10px;
+    width: 75%;
+}
+
+.deux {
+    width: 17.6%;
+    float: right;
+    margin-top: -19%;
+    margin-right: 11%;
+}
+
+.deux > img {
+    border-radius: 10px;
+    width: 75%;
+}
+
+.trois {
+    width: 57%;
+    float: right;
+    margin-top: -8.7%;
+    margin-right: 15.4%;
+}
+
+.trois > img {
+    border-radius: 10px;
+    width: 51%;
+    float: right;
 }
