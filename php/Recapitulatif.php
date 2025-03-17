@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        </div>
         <h1>Récapitulatif de l'inscription</h1>
     </header>
     <main>
