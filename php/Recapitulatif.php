@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Récapitulatif Inscription VolunTime</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleIns.css">
 </head>
 <body>
     <header>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group" id="handicap_field" style="<?php if (!isset($_POST['handicap_checkbox'])) echo 'display: none;'; ?>">
                     <label for="description_handicap">Veuillez préciser votre handicap</label>
-                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" required><?php echo htmlspecialchars($_POST['description_handicap']); ?></textarea>
+                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" ><?php echo htmlspecialchars($_POST['description_handicap']); ?></textarea>
                 </div>
                 <button type="submit" class="btn">Confirmer</button>
             </form>

@@ -1,35 +1,32 @@
 <?php
-    include("include\connect_bdd.php");
+session_start();
+include("../include/connect_bdd.php");
 
-    $user_id = strip_tags($_POST["ID"]);
-    $user_pwd = strip_tags(sha1($_POST["password"]));
+$id = strip_tags($_POST["ID"]);
+$password = strip_tags(sha1($_POST["password"]));
 
-    $sql = "SELECT id_utilisateur, mot_de_passe ,email FROM utilisateur";
-    $requete=$db->prepare($sql);
-    $requete->execute();
-    $identification = $requete->fetchAll();
-    $connexion = false;
+try {
+    $sql = "SELECT id_utilisateur, mot_de_passe, email FROM utilisateur WHERE id_utilisateur = :id_utilisateur AND mot_de_passe = :mot_de_passe";
+    $requete = $db->prepare($sql);
+    $requete->execute(array(
+        'id_utilisateur' => $id,
+        'mot_de_passe' => $password
+    ));
+    $identification = $requete->fetch();
 
-    foreach($identification as $row)
-    {
-        if ($row["id_utilisateur"] == $user_id && $row["mot_de_passe"] == $user_pwd)
-        {
-            $_SESSION["login"] = $row["id_utilisateur"];
-            $_SESSION["password"] = $row["mot_de_passe"];
-            //$_SESSION["id"] = $row["email"];
-            $connexion = true;
-            break;
-        }
-
-    }
-    if ($connexion)
-    {
+    if ($identification) {
+        $_SESSION["login"] = $identification["id_utilisateur"];
+        $_SESSION["password"] = $identification["mot_de_passe"];
+        // $_SESSION["id"] = $identification["email"];
         header("Location: dashboard.php");
-        exit();   
-    }    
-    else{
-        //Redirection sur l'ancienne page avec un texte d'erreur
+        exit();
+    } else {
+        // Redirection sur l'ancienne page avec un texte d'erreur
         $_SESSION['message'] = 'Nom d\'utilisateur ou mot de passe incorrect.';
         header('Location: connexion.php');
         exit();
     }
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+?>
