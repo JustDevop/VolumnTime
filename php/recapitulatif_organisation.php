@@ -50,7 +50,7 @@
                     <label for="site_web">Site Web</label>
                     <input type="url" id="site_web" name="site_web" value="<?php echo htmlspecialchars($_POST['site_web']); ?>">
                 </div>
-                <button type="submit" class="btn">Confirmer l'inscription</button>
+                <button type="submit" class="btn">Envoyer la demande d'inscription</button>
             </form>
         </div>
     </main>

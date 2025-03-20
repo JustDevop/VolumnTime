@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="signup-container">
-            <form action="creation_organisation.php" method="POST">
+            <form action="recapitulatif_organisation.php" method="POST">
                 <div class="form-group">
                     <label for="nom">Nom de l'organisation</label>
                     <input type="text" id="nom" name="nom" placeholder="Nom de votre organisation" required>
