@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    include '../include/connect_bdd.php'; // Fichier de configuration pour la connexion à la base de données
+
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['identifiant'])) {
+        header('Location: connexion.php');
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
