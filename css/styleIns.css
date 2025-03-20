@@ -1,3 +1,19 @@
+/*POLICE*/
+@font-face { 
+    font-family: Creato;
+    src: url(../asset/police/CreatoDisplay-Thin.otf);
+}
+
+@font-face { 
+    font-family: Neatly;
+    src: url(../asset/police/KGNeatlyPrintedSpaced.ttf);
+}
+
+@font-face { 
+    font-family: Nightblows;
+    src: url(../asset/police/Nightblows.otf);
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #eeeeee;
@@ -103,3 +119,4 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+
