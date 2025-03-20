@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'include\connect_bdd.php';
+    require '../include/connect_bdd.php';
     
     session_unset();
     session_destroy();
