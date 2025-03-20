@@ -8,7 +8,6 @@
 </head>
 <body>
     <header>
-        </div>
         <h1>Récapitulatif de l'inscription</h1>
     </header>
     <main>
@@ -36,29 +35,35 @@
                     <input type="text" id="identifiant" name="identifiant" value="<?php echo htmlspecialchars($_POST['identifiant']); ?>" required>
                 </div>
                 <div class="form-group">
-                    <label>Sexe</label>
-                    <div>
-                        <input type="radio" id="homme" name="sexe" value="homme" <?php if ($_POST['sexe'] == 'homme') echo 'checked'; ?> required>
-                        <label for="homme">Homme</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="femme" name="sexe" value="femme" <?php if ($_POST['sexe'] == 'femme') echo 'checked'; ?> required>
-                        <label for="femme">Femme</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="neutre" name="sexe" value="neutre" <?php if ($_POST['sexe'] == 'neutre') echo 'checked'; ?> required>
-                        <label for="neutre">Neutre</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="interets">Centres d'intérêt</label>
-                    <select id="interets" name="interets[]" multiple required>
-                        <option value="sport" <?php if (in_array('sport', $_POST['interets'])) echo 'selected'; ?>>Sport</option>
-                        <option value="musique" <?php if (in_array('musique', $_POST['interets'])) echo 'selected'; ?>>Musique</option>
-                        <option value="lecture" <?php if (in_array('lecture', $_POST['interets'])) echo 'selected'; ?>>Lecture</option>
-                        <option value="voyage" <?php if (in_array('voyage', $_POST['interets'])) echo 'selected'; ?>>Voyage</option>
-                        <option value="technologie" <?php if (in_array('technologie', $_POST['interets'])) echo 'selected'; ?>>Technologie</option>
+                    <label for="sexe">Sexe</label>
+                    <select id="sexe" name="sexe" required>
+                        <option value="homme" <?php if ($_POST['sexe'] == 'homme') echo 'selected'; ?>>Homme</option>
+                        <option value="femme" <?php if ($_POST['sexe'] == 'femme') echo 'selected'; ?>>Femme</option>
+                        <option value="neutre" <?php if ($_POST['sexe'] == 'neutre') echo 'selected'; ?>>Neutre</option>
                     </select>
+                </div>
+                <div class="centre">
+                    <label for="interets">Centres d'intérêt</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="sport" name="interets[]" value="sport" <?php if (in_array('sport', $_POST['interets'])) echo 'checked'; ?>>
+                        <label for="sport">Sport</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="musique" name="interets[]" value="musique" <?php if (in_array('musique', $_POST['interets'])) echo 'checked'; ?>>
+                        <label for="musique">Musique</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="lecture" name="interets[]" value="lecture" <?php if (in_array('lecture', $_POST['interets'])) echo 'checked'; ?>>
+                        <label for="lecture">Lecture</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="voyage" name="interets[]" value="voyage" <?php if (in_array('voyage', $_POST['interets'])) echo 'checked'; ?>>
+                        <label for="voyage">Voyage</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="technologie" name="interets[]" value="technologie" <?php if (in_array('technologie', $_POST['interets'])) echo 'checked'; ?>>
+                        <label for="technologie">Technologie</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="ville">Ville</label>
@@ -86,9 +91,11 @@
                 </div>
                 <div class="form-group" id="handicap_field" style="<?php if (!isset($_POST['handicap_checkbox'])) echo 'display: none;'; ?>">
                     <label for="description_handicap">Veuillez préciser votre handicap</label>
-                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" ><?php echo htmlspecialchars($_POST['description_handicap']); ?></textarea>
+                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35"><?php echo htmlspecialchars($_POST['description_handicap']); ?></textarea>
                 </div>
-                <button type="submit" class="btn">Confirmer</button>
+                <div class="form-group">
+                    <button type="submit" class="btn">Confirmer</button>
+                </div>
             </form>
         </div>
     </main>

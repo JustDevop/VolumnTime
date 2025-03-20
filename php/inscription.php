@@ -38,29 +38,35 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group">
-                    <label>Sexe</label>
-                    <div>
-                        <input type="radio" id="homme" name="sexe" value="homme" required>
-                        <label for="homme">Homme</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="femme" name="sexe" value="femme" required>
-                        <label for="femme">Femme</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="neutre" name="sexe" value="neutre" required>
-                        <label for="neutre">Neutre</label>
-                    </div>
+                    <label for="sexe">Sexe</label>
+                    <select id="sexe" name="sexe" required>
+                        <option value="homme">Homme</option>
+                        <option value="femme">Femme</option>
+                        <option value="neutre">Neutre</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="interets">Centres d'intérêt</label>
-                    <select id="interets" name="interets[]" multiple required>
-                        <option value="sport">Sport</option>
-                        <option value="musique">Musique</option>
-                        <option value="lecture">Lecture</option>
-                        <option value="voyage">Voyage</option>
-                        <option value="technologie">Technologie</option>
-                    </select>
+                    <div>
+                        <input type="checkbox" id="sport" name="interets[]" value="sport">
+                        <label for="sport">Sport</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="musique" name="interets[]" value="musique">
+                        <label for="musique">Musique</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="lecture" name="interets[]" value="lecture">
+                        <label for="lecture">Lecture</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="voyage" name="interets[]" value="voyage">
+                        <label for="voyage">Voyage</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="technologie" name="interets[]" value="technologie">
+                        <label for="technologie">Technologie</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="ville">Ville</label>
@@ -77,10 +83,10 @@
                 <div class="form-group">
                     <label for="disponibilite">Disponibilité</label>
                     <select id="disponibilite" name="disponibilite" required>
-                    <option value="" disabled selected>Choisissez votre disponibilité</option>
+                        <option value="" disabled selected>Choisissez votre disponibilité</option>
                         <option value="semaine">Semaine</option>
                         <option value="weekend">Week-end</option>
-                        <option value="weekend">Semaine et Week-end</option>
+                        <option value="semaine_weekend">Semaine et Week-end</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -89,9 +95,8 @@
                 </div>
                 <div class="form-group" id="handicap_field" style="display: none;">
                     <label for="description_handicap">Veuillez préciser votre handicap</label>
-                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35" ></textarea>
+                    <textarea id="description_handicap" name="description_handicap" placeholder="Sensoriels, Moteurs, Mentaux, Psychiques et Cognitifs" rows="4" cols="35"></textarea>
                 </div>
-        
                 <button type="submit" class="btn">S'inscrire</button>
             </form>
         </div>
