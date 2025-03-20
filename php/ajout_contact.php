@@ -3,7 +3,7 @@
     include("include/connect_bdd.php");
     
     // Vérifiez si l'utilisateur est connecté
-    if (!isset($_SESSION['id_utilisateur'])) {
+    if (!isset($_SESSION['identifiant'])) {
         die('Vous devez être connecté pour ajouter un contact.');
     }
 

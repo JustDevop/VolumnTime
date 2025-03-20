@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'include/connect_bdd.php'; 
+include '../include/connect_bdd.php'; 
 
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['id_utilisateur'])) {
+// Vérifier si l'utilisateur est connecté et qu'il est le représentant d'une association (rôle 2)
+if (!isset($_SESSION['identifiant']) && ($_SESSION['role'] == 2)) {
     header('Location: connexion.php');
     exit();
 }

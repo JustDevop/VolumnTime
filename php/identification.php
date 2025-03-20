@@ -21,12 +21,12 @@
             // Stockage des informations de l'utilisateur dans la session
             $_SESSION["identifiant"] = $identification["identifiant"];
             $_SESSION["role"] = $identification["role"];
-            //header("Location: dashboard.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             // Redirection en cas d'échec de l'authentification
             $_SESSION['message'] = 'Nom d\'utilisateur ou mot de passe incorrect.';
-            //header('Location: connexion.php');
+            header('Location: connexion.php');
             exit();
         }
     } catch (Exception $e) {
