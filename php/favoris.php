@@ -13,8 +13,10 @@
 <body>
     <?php
     
-    "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
-    
+    $sql = "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
+    $requete = $db->prepare($sql);
+    $requete->execute();
+
     ?>
 </body>
 </html>
