@@ -12,8 +12,8 @@
     </header>
     <form action="identification.php" method="POST">
         <div class="form-group">
-            <label for="ID">Identifiant</label>
-            <input type="text" id="ID" name="ID" required>
+            <label for="email">Identifiant</label>
+            <input type="text" id="email" name="ID" required>
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
