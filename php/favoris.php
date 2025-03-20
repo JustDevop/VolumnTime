@@ -1,6 +1,6 @@
 <?php
-// session_start();
-// include 'connect_bdd.php';
+//session_start();
+include '../include/connect_bdd.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +12,17 @@
 </head>
 <body>
     <?php
+
+    $sql = "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
+    $requete = $db->prepare($sql);
+    $requete->execute();
+
+    $mission=$requete->fetchAll();
+    foreach($mission as $missions){
+
+        echo '<p>'.$missions['titre'].'</p>';
     
-    "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
-    
+    }
     ?>
 </body>
 </html>
