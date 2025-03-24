@@ -101,6 +101,30 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
+-- Créer une nouvelle table conversation
+CREATE TABLE `conversation` (
+  `id_conversation` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) DEFAULT NULL,
+  `date_creation` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_conversation`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Créer une table pour lier les utilisateurs aux conversations
+CREATE TABLE `conversation_participant` (
+  `id_conversation` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id_conversation`,`id_utilisateur`),
+  KEY `id_utilisateur` (`id_utilisateur`),
+  CONSTRAINT `conversation_participant_ibfk_1` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE,
+  CONSTRAINT `conversation_participant_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Modifier la table message pour utiliser id_conversation au lieu de id_destinataire
+ALTER TABLE `message` DROP FOREIGN KEY `message_ibfk_2`;
+ALTER TABLE `message` DROP COLUMN `id_destinataire`;
+ALTER TABLE `message` ADD COLUMN `id_conversation` int(11) NOT NULL AFTER `id_envoyeur`;
+ALTER TABLE `message` ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE;
+
 DROP TABLE IF EXISTS `mission`;
 CREATE TABLE `mission` (
   `id_mission` int(11) NOT NULL AUTO_INCREMENT,
