@@ -80,64 +80,68 @@ if (!isset($_SESSION['csrf_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversation</title>
+    <link rel="stylesheet" href="../css/styleContact.css">
 </head>
 <body>
     <header>
         <h1>Conversation</h1>
-        <a href="dashboard.php" class="back-link">Retour au tableau de bord</a>
     </header>
     
-    <!-- Affichage des messages d'erreur/succès -->
-    <?php if (isset($_SESSION['message_error'])): ?>
-        <div class="alert error">
-            <?php echo $_SESSION['message_error']; unset($_SESSION['message_error']); ?>
-        </div>
-    <?php endif; ?>
-    
-    <?php if (isset($_SESSION['message_success'])): ?>
-        <div class="alert success">
-            <?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?>
-        </div>
-    <?php endif; ?>
-    
     <main>
+        <div class="back-link">
+            <a href="dashboard.php" class="btn">Retour au tableau de bord</a>
+        </div>
+        
+        <!-- Affichage des messages d'erreur/succès -->
+        <?php if (isset($_SESSION['message_error'])): ?>
+            <div class="alert error">
+                <?php echo $_SESSION['message_error']; unset($_SESSION['message_error']); ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_SESSION['message_success'])): ?>
+            <div class="alert success">
+                <?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?>
+            </div>
+        <?php endif; ?>
+        
         <div class="conversation-container">
             <div class="sidebar">
                 <h2>Mes conversations</h2>
-                <ul class="conversation-list">
+                <div class="listecontact">
                     <?php if (empty($conversations)): ?>
-                        <li>Aucune conversation active</li>
+                        <p>Aucune conversation active</p>
                     <?php else: ?>
                         <?php foreach ($conversations as $conv): ?>
-                            <li>
+                            <p>
                                 <a href="conversation.php?id=<?php echo $conv['id_conversation']; ?>" 
                                    class="<?php echo ($id_conversation == $conv['id_conversation']) ? 'active' : ''; ?>">
                                     <?php echo htmlspecialchars($conv['titre'] ?: 'Conversation du ' . date('d/m/Y', strtotime($conv['date_creation']))); ?>
                                 </a>
-                            </li>
+                            </p>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                </ul>
+                </div>
                 
                 <h2>Mes contacts</h2>
-                <ul class="contact-list">
+                <div class="listecontact">
                     <?php if (empty($contacts)): ?>
-                        <li>Aucun contact ajouté</li>
-                        <li><a href="contact.php" class="btn-link">Ajouter des contacts</a></li>
+                        <p>Aucun contact ajouté</p>
+                        <p><a href="contact.php" class="btn">Ajouter des contacts</a></p>
                     <?php else: ?>
                         <?php foreach ($contacts as $contact): ?>
-                            <li>
-                                <div class="contact-info">
-                                    <?php echo htmlspecialchars($contact['prenom'] . ' ' . $contact['nom']); ?>
-                                    <button class="btn-new-conv" onclick="startConversation(<?php echo $contact['id_utilisateur']; ?>)">
-                                        Nouvelle conversation
-                                    </button>
-                                </div>
-                            </li>
+                            <p>
+                                <?php echo htmlspecialchars($contact['prenom'] . ' ' . $contact['nom']); ?>
+                                <span class="icons">
+                                    <a onclick="startConversation(<?php echo $contact['id_utilisateur']; ?>)">
+                                        <img src="../asset/icones/messager.png" alt="Message" class="une">
+                                    </a>
+                                </span>
+                            </p>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                </ul>
-                <a href="contact.php" class="btn-link">Gérer mes contacts</a>
+                </div>
+                <p><a href="contact.php" class="btn">Gérer mes contacts</a></p>
             </div>
             
             <div class="message-area">
@@ -159,7 +163,7 @@ if (!isset($_SESSION['csrf_token'])) {
                         <input type="hidden" name="id_conversation" value="<?php echo htmlspecialchars($id_conversation); ?>">
                         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                         <textarea name="contenu" required placeholder="Écrivez votre message ici..."></textarea>
-                        <button type="submit" class="btn-send">Envoyer</button>
+                        <button type="submit" class="btn">Envoyer</button>
                     </form>
                 <?php else: ?>
                     <div class="no-conversation">

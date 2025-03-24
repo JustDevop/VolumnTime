@@ -26,13 +26,18 @@
 
     // Récupérer les utilisateurs qui ne sont pas encore contacts (pour l'ajout de contacts)
     try {
-        $sql = "SELECT id_utilisateur, nom, prenom, email 
-                FROM utilisateur 
-                WHERE id_utilisateur != :id_utilisateur
-                AND id_utilisateur NOT IN (
+        $sql = "SELECT u.id_utilisateur, u.nom, u.prenom, u.email, 
+                (SELECT GROUP_CONCAT(o.nom SEPARATOR ', ') 
+                 FROM organisation_representant orep 
+                 JOIN organisation o ON orep.id_organisation = o.id_organisation 
+                 WHERE orep.id_utilisateur = u.id_utilisateur AND o.statut = 'approuvé') as organisations
+                FROM utilisateur u
+                WHERE u.id_utilisateur != :id_utilisateur
+                AND u.id_utilisateur NOT IN (
                     SELECT id_contact FROM contact WHERE id_utilisateur = :id_utilisateur
                 )
-                ORDER BY nom, prenom
+                AND u.role != '3' -- Exclure les administrateurs
+                ORDER BY u.nom, u.prenom
                 LIMIT 50"; // Limite à 50 utilisateurs pour éviter de surcharger la liste - Modifiable 
         $stmt = $db->prepare($sql);
         $stmt->execute(['id_utilisateur' => $id_utilisateur]);
@@ -103,14 +108,16 @@
                 <p>Aucun autre utilisateur disponible à ajouter.</p>
             <?php else: ?>
                 <form action="ajout_contact.php" method="POST">
-                    <select name="id_contact" required>
-                        <option value="">Sélectionner un utilisateur</option>
-                        <?php foreach ($autres_utilisateurs as $user): ?>
-                            <option value="<?php echo $user['id_utilisateur']; ?>">
-                                <?php echo htmlspecialchars($user['prenom'] . ' ' . $user['nom'] . ' (' . $user['email'] . ')'); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+                <select name="id_contact" required>
+                    <option value="">Sélectionner un utilisateur</option>
+                    <?php foreach ($autres_utilisateurs as $user): ?>
+                        <option value="<?php echo $user['id_utilisateur']; ?>">
+                            <?php echo htmlspecialchars($user['prenom'] . ' ' . $user['nom']);
+                                echo !empty($user['organisations']) ? ' (Représentant: ' . htmlspecialchars($user['organisations']) . ')' : ''; 
+                                echo ' - ' . $user['email']; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
                     <button type="submit" class="btn-add">Ajouter</button>
                 </form>
             <?php endif; ?>
