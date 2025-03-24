@@ -19,14 +19,15 @@
 </head>
 <body>
     <?php
+    $id_utilisateur = $_SESSION['identifiant'];
+    $role = isset($_SESSION['role']) ? $_SESSION['role'] : '1';
 
-    $sql = "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
+    $sql = "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission WHERE ";
     $requete = $db->prepare($sql);
     $requete->execute();
 
     $mission=$requete->fetchAll();
 
-    print_r($mission);
     foreach($mission as $missions){
 
         echo '<p>'.$missions['titre'].'</p>';

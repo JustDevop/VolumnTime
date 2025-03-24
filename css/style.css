@@ -120,7 +120,7 @@ h1 {
 h1 b {
     font-weight: normal;
     text-decoration: none;
-    color: #7ad6bc;
+    color: #ff8239;
 }
 
 .about > .texte > p {
@@ -133,7 +133,8 @@ h1 b {
 }
 
 .about {
-    margin-top: -5%;
+    margin-top: -8%;
+    margin-left: 7%;
 }
 
 /*SECTION 2*/
@@ -175,7 +176,8 @@ h1 b {
 }
 
 .illustration {
-    margin-top: -3%;
+    margin-top: -3.5%;
+    margin-right: 2%;
 }
 
 /* Styles pour la barre de recherche */
@@ -256,6 +258,123 @@ h1 b {
     margin-top: 8%;
 }
 
-.organisations .titre {
-    
+.titre h2{
+    font-size: 400%;
+    font-family: Nightblows;
+    letter-spacing: 2px;
+    font-weight: 300; 
+    color: #b8f05f;
+    text-align: center;
+}
+
+.titre h2 b {
+    font-weight: normal;
+    text-decoration: none;
+    color: #ff8239;
+}
+
+.liste {
+    display: flex;
+    margin: 0.5rem auto;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.organisation {
+    width: 14%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.336);
+    padding: 0.8rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 1rem; /* Add margin to create equal spacing between boxes */
+}
+
+.organisation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.organisation img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 0.2rem;
+}
+
+.organisation h3 {
+    font-family: Neatly;
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+.organisation p {
+    font-family: Creato;
+    font-size: 0.9rem;
+    color: #666666;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*FOOTER*/
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 2rem 0;
+    font-family: Creato;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 1rem;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #b8f05f;
+    font-family: Nightblows;
+}
+
+.footer-section p, 
+.footer-section a {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    color: #ff8239;
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #cccccc;
+    border-top: 1px solid #444444;
+    padding-top: 1rem;
 }
