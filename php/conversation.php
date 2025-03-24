@@ -8,6 +8,7 @@ if (!isset($_SESSION['identifiant'])) {
     exit();
 }
 $id_utilisateur = $_SESSION['id_utilisateur'];
+echo "<!-- Debug: ID utilisateur = " . $id_utilisateur . " -->";
 
 // Récupérer les contacts de l'utilisateur
 try {
@@ -22,6 +23,7 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
+echo "<!-- Debug: Nombre de contacts = " . count($contacts) . " -->";
 
 // Récupérer les conversations de l'utilisateur
 try {
@@ -70,6 +72,7 @@ if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 ?>
+<?php echo "<!-- Debug: Session = " . print_r($_SESSION, true) . " -->"; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -77,7 +80,6 @@ if (!isset($_SESSION['csrf_token'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversation</title>
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
