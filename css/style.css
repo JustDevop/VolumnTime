@@ -20,7 +20,6 @@ html, body {
     src: url(../asset/police/Nightblows.otf);
 }
 
-
 /*HEADER*/
 /*MENU BURGER*/
 ul {
@@ -54,7 +53,6 @@ li {
     font-family: jetbrains;
     color: #ff8239;
     transition: color .5s;
-
 }
 
 .burger > ul > li > a:hover {
@@ -84,13 +82,18 @@ li {
 }
 
 /*ICONE LOUPE*/
-.iconeLoupe {
-    width: 2.8%;
-    height: 2.8%;
+.container {
+    width: 10%;
+    height: 10%;
     float: right;
     margin-top: 1%;
     margin-right: 0.8%;
+    cursor: pointer;
+    color: #ff8239;
+    position: relative;
+    z-index: 1000; /* Ensure the search bar is above other elements */
 }
+
 /*FIN DU HEADER*/
 
 /*SECTION 1*/
@@ -161,4 +164,77 @@ h1 b {
     border-radius: 10px;
     width: 51%;
     float: right;
+}
+
+/* Styles pour la barre de recherche */
+.search-form {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    padding: 0;
+    margin: 0 0.5rem;
+    transition: width 0.5s;
+}
+
+.search-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    font-size: small;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.search-button {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.search-icon,
+.search-close {
+    position: absolute;
+    font-size: 2.5rem;
+    color: #ff8239;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-close {
+    opacity: 0;
+}
+
+/* Active Search */
+.active-search {
+    max-width: 100%;
+    width: 25rem;
+}
+
+.active-search .search-button {
+    left: calc(100% - 2rem);
+}
+
+.active-search .search-input {
+    pointer-events: initial;
+    opacity: 1;
+}
+
+.active-search .search-close {
+    opacity: 1;
+}
+
+.active-search .search-icon {
+    opacity: 0;
 }
