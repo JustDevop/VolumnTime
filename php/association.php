@@ -8,19 +8,10 @@ if (!isset($_SESSION['identifiant']) && ($_SESSION['role'] == 2)) {
     exit();
 }
 
-$id_utilisateur = $_SESSION['id_utilisateur'];
+$id_utilisateur = $_SESSION['identifiant'];
 
 // Récupérer les associations de l'utilisateur
-$sql = "SELECT o.id_organisation, o.nom, o.description, o.date_creation
-        FROM organisation o
-        JOIN organisation_representant orp ON o.id_organisation = orp.id_organisation
-        WHERE orp.id_utilisateur = ?
-        ORDER BY o.date_creation DESC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $id_utilisateur);
-$stmt->execute();
-$result = $stmt->get_result();
-$associations = $result->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
