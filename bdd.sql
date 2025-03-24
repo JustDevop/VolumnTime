@@ -169,6 +169,7 @@ CREATE TABLE `organisation` (
   `site_web` varchar(255) DEFAULT NULL,
   `date_creation` datetime DEFAULT current_timestamp(),
   `description_organisation` text DEFAULT NULL,
+  `image_organisation` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_organisation`),
   UNIQUE KEY `email_contact` (`email_contact`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
