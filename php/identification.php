@@ -7,7 +7,7 @@
 
     try {
 
-        $sql = "SELECT identifiant, mot_de_passe FROM utilisateur WHERE identifiant = :identifiant AND mot_de_passe = :mot_de_passe";
+        $sql = "SELECT identifiant, mot_de_passe, id_utilisateur FROM utilisateur WHERE identifiant = :identifiant AND mot_de_passe = :mot_de_passe";
         $requete = $db->prepare($sql);
         $requete->execute([
             'identifiant' => $id,
@@ -21,7 +21,8 @@
             // Stockage des informations de l'utilisateur dans la session
             $_SESSION["identifiant"] = $identification["identifiant"];
             $_SESSION["role"] = $identification["role"];
-            header("Location: dashboard.php");
+            $_SESSION["id_utilisateur"] = $identification["id_utilisateur"];
+            header("Location: ../index.html");
             exit();
         } else {
             // Redirection en cas d'échec de l'authentification
