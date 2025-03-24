@@ -77,8 +77,8 @@ li {
     width: 2.8%;
     height: 2.8%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.5%;
+    margin-top: -9.9%;
+    margin-right: 4%;
 }
 
 /*ICONE LOUPE*/
@@ -86,14 +86,18 @@ li {
     width: 10%;
     height: 10%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.8%;
+    margin-top: -10.7%;
+    margin-right: 2.3%;
     cursor: pointer;
     color: #ff8239;
     position: relative;
-    z-index: 1000; /* Ensure the search bar is above other elements */
 }
 
+.logo {
+    width: 8%;
+    height: auto;
+    margin: 20px;
+}
 /*FIN DU HEADER*/
 
 /*SECTION 1*/
@@ -126,6 +130,10 @@ h1 b {
     letter-spacing: 2px;
     text-align: justify;
     margin-left: 8.8%;
+}
+
+.about {
+    margin-top: -5%;
 }
 
 /*SECTION 2*/
@@ -164,6 +172,10 @@ h1 b {
     border-radius: 10px;
     width: 51%;
     float: right;
+}
+
+.illustration {
+    margin-top: -3%;
 }
 
 /* Styles pour la barre de recherche */
@@ -205,7 +217,7 @@ h1 b {
 .search-icon,
 .search-close {
     position: absolute;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #ff8239;
     top: 50%;
     left: 50%;
@@ -237,4 +249,13 @@ h1 b {
 
 .active-search .search-icon {
     opacity: 0;
+}
+
+/*Section Organisation*/
+.organisations {
+    margin-top: 8%;
+}
+
+.organisations .titre {
+    
 }

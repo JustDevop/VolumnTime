@@ -1,11 +1,10 @@
 <?php
-    session_start();
     include 'include/connect_bdd.php';
 
-    $sql = "SELECT * FROM organisation WHERE statut = 'approuvé'";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $organisations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // $sql = "SELECT * FROM organisation WHERE statut = 'approuvé'";
+    // $stmt = $db->prepare($sql);
+    // $stmt->execute();
+    // $organisations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -26,6 +25,7 @@
 </head>
 <body>
     <header>
+        <img class="logo" src="asset/logo/logo-voluntime_version-finale.png" alt="logo volunTime">
         <nav class="burger">
             <span class="hamburger">☰</span>
             <ul>
@@ -65,6 +65,18 @@
         </div>
     </section>
 
+    <section class="illustration">
+        <div class="une">
+            <img src="asset/images/ecologie.png" alt="Main portant une plante">
+        </div>
+        <div class="deux">
+            <img src="asset/images/crafts.png" alt="réalisation d'affiche fait main">
+        </div>
+        <div class="trois">
+            <img src="asset/images/confi.png" alt="réalisation de confiture">
+        </div>
+    </section>
+
     <section class="organisations">
         <div class="titre">
             <h2>Les organisations présentes sur notre plateforme</h2>
@@ -79,18 +91,6 @@
                 </div>
             <?php endforeach; ?>
         </div>
-
-    <section class="illustration">
-        <div class="une">
-            <img src="asset/images/ecologie.png" alt="Main portant une plante">
-        </div>
-        <div class="deux">
-            <img src="asset/images/crafts.png" alt="réalisation d'affiche fait main">
-        </div>
-        <div class="trois">
-            <img src="asset/images/confi.png" alt="réalisation de confiture">
-        </div>
-    </section>
     
     <script src="Js/menuhamburger.js"></script>
     <script src="Js/recherche.js"></script>
