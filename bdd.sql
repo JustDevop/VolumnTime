@@ -1,3 +1,5 @@
+-- Adminer 4.8.1 MySQL 10.6.18-MariaDB-0ubuntu0.22.04.1 dump
+
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
@@ -16,6 +18,8 @@ CREATE TABLE `competence` (
   UNIQUE KEY `nom` (`nom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `competence` (`id_competence`, `nom`) VALUES
+(1,	'Communication');
 
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
@@ -27,6 +31,39 @@ CREATE TABLE `contact` (
   CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`id_contact`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `contact` (`id_utilisateur`, `id_contact`) VALUES
+(1,	2),
+(1,	3),
+(2,	1),
+(3,	1);
+
+DROP TABLE IF EXISTS `conversation`;
+CREATE TABLE `conversation` (
+  `id_conversation` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) DEFAULT NULL,
+  `date_creation` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_conversation`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `conversation` (`id_conversation`, `titre`, `date_creation`) VALUES
+(1,	'Conversation: Benjamin Haulet & Justine Leborgne',	'2025-03-24 09:18:04'),
+(2,	'Conversation: Benjamin Haulet & Corentin Duclos',	'2025-03-24 09:18:11');
+
+DROP TABLE IF EXISTS `conversation_participant`;
+CREATE TABLE `conversation_participant` (
+  `id_conversation` int(11) NOT NULL,
+  `id_utilisateur` int(11) NOT NULL,
+  PRIMARY KEY (`id_conversation`,`id_utilisateur`),
+  KEY `id_utilisateur` (`id_utilisateur`),
+  CONSTRAINT `conversation_participant_ibfk_1` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE,
+  CONSTRAINT `conversation_participant_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `conversation_participant` (`id_conversation`, `id_utilisateur`) VALUES
+(1,	1),
+(1,	2),
+(2,	1),
+(2,	3);
 
 DROP TABLE IF EXISTS `evaluation`;
 CREATE TABLE `evaluation` (
@@ -90,40 +127,19 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `id_message` int(11) NOT NULL AUTO_INCREMENT,
   `id_envoyeur` int(11) NOT NULL,
-  `id_destinataire` int(11) NOT NULL,
+  `id_conversation` int(11) NOT NULL,
   `contenu` text NOT NULL,
   `date_envoi` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_message`),
   KEY `id_envoyeur` (`id_envoyeur`),
-  KEY `id_destinataire` (`id_destinataire`),
+  KEY `message_ibfk_2` (`id_conversation`),
   CONSTRAINT `message_ibfk_1` FOREIGN KEY (`id_envoyeur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE,
-  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_destinataire`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
+  CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
--- Créer une nouvelle table conversation
-CREATE TABLE `conversation` (
-  `id_conversation` int(11) NOT NULL AUTO_INCREMENT,
-  `titre` varchar(255) DEFAULT NULL,
-  `date_creation` datetime DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_conversation`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Créer une table pour lier les utilisateurs aux conversations
-CREATE TABLE `conversation_participant` (
-  `id_conversation` int(11) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL,
-  PRIMARY KEY (`id_conversation`,`id_utilisateur`),
-  KEY `id_utilisateur` (`id_utilisateur`),
-  CONSTRAINT `conversation_participant_ibfk_1` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE,
-  CONSTRAINT `conversation_participant_ibfk_2` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Modifier la table message pour utiliser id_conversation au lieu de id_destinataire
-ALTER TABLE `message` DROP FOREIGN KEY `message_ibfk_2`;
-ALTER TABLE `message` DROP COLUMN `id_destinataire`;
-ALTER TABLE `message` ADD COLUMN `id_conversation` int(11) NOT NULL AFTER `id_envoyeur`;
-ALTER TABLE `message` ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_conversation`) REFERENCES `conversation` (`id_conversation`) ON DELETE CASCADE;
+INSERT INTO `message` (`id_message`, `id_envoyeur`, `id_conversation`, `contenu`, `date_envoi`) VALUES
+(1,	1,	2,	'Salut Corentin',	'2025-03-24 09:27:02'),
+(2,	1,	1,	'Coucou Justine',	'2025-03-24 09:27:34');
 
 DROP TABLE IF EXISTS `mission`;
 CREATE TABLE `mission` (
@@ -168,12 +184,14 @@ CREATE TABLE `organisation` (
   `pays` varchar(100) DEFAULT NULL,
   `site_web` varchar(255) DEFAULT NULL,
   `date_creation` datetime DEFAULT current_timestamp(),
-  `description_organisation` text DEFAULT NULL,
-  `image_organisation` varchar(255) DEFAULT NULL,
+  `statut` enum('en_attente','approuvé','rejeté') DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_organisation`),
   UNIQUE KEY `email_contact` (`email_contact`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `organisation` (`id_organisation`, `nom`, `description`, `email_contact`, `telephone`, `adresse`, `ville`, `code_postal`, `pays`, `site_web`, `date_creation`, `statut`, `logo`) VALUES
+(1,	'Orga_test',	'Test orga',	'orga_test@gmail.com',	'0600000000',	'11 rue de la Paix',	'Elbeuf',	'76000',	'France',	'https://organisation.com',	'2025-03-20 11:07:28',	'approuvé',	'restoCoeur.png');
 
 DROP TABLE IF EXISTS `organisation_representant`;
 CREATE TABLE `organisation_representant` (
@@ -192,7 +210,7 @@ CREATE TABLE `utilisateur` (
   `nom` varchar(100) NOT NULL,
   `prenom` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `identifiant` tinyint(100) NOT NULL,
+  `identifiant` varchar(100) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL,
   `role` enum('1','2','3') NOT NULL DEFAULT '1',
   `tagUsers` text DEFAULT NULL,
@@ -202,11 +220,16 @@ CREATE TABLE `utilisateur` (
   `code_postal` varchar(10) NOT NULL,
   `date_inscription` datetime NOT NULL DEFAULT current_timestamp(),
   `handicap` tinyint(1) DEFAULT 0,
-  `description_handicap` smallint(6) DEFAULT NULL,
+  `description_handicap` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `email`, `identifiant`, `mot_de_passe`, `role`, `tagUsers`, `telephone`, `adresse`, `ville`, `code_postal`, `date_inscription`, `handicap`, `description_handicap`) VALUES
+(1,	'Haulet',	'Benjamin',	'benjamin.haulet@univ-rouen.fr',	'bhaulet',	'7110eda4d09e062aa5e4a390b0a572ac0d2c0220',	'1',	'lecture',	'0634480212',	'45 rue Henry ',	'Elbeuf',	'76500',	'2025-03-17 10:28:11',	0,	NULL),
+(2,	'Leborgne',	'Justine',	'leborgne.justine8129@gmail.com',	'leborjus',	'7110eda4d09e062aa5e4a390b0a572ac0d2c0220',	'1',	'Voyage',	'0612345678',	'234 route de la mairie',	'Rouen',	'76690',	'2025-03-20 15:45:29',	0,	NULL),
+(3,	'Duclos',	'Corentin',	'duclos_corentin@gmail.com',	'Cduclos',	'da39a3ee5e6b4b0d3255bfef95601890afd80709',	'1',	'sport',	'0612345678',	'11 rue de la Paix',	'Elbeuf',	'76500',	'2025-03-24 08:40:43',	0,	NULL),
+(4,	'admin',	'admin',	'admin@admin.com',	'admin',	'7b902e6ff1db9f560443f2048974fd7d386975b0',	'3',	NULL,	'',	'',	'',	'',	'2025-03-24 10:47:40',	0,	NULL);
 
 DROP TABLE IF EXISTS `utilisateur_competence`;
 CREATE TABLE `utilisateur_competence` (
@@ -218,3 +241,7 @@ CREATE TABLE `utilisateur_competence` (
   CONSTRAINT `utilisateur_competence_ibfk_2` FOREIGN KEY (`id_competence`) REFERENCES `competence` (`id_competence`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `utilisateur_competence` (`id_utilisateur`, `id_competence`) VALUES
+(2,	1);
+
+-- 2025-03-24 10:27:45
