@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    include '../include/connect_bdd.php'; // Fichier de configuration pour la connexion à la base de données
+    // session_start();
+    // include '../include/connect_bdd.php'; // Fichier de configuration pour la connexion à la base de données
 
-    // Vérifier si l'utilisateur est connecté
-    if (!isset($_SESSION['identifiant'])) {
-        header('Location: connexion.php');
-        exit();
-    }
+    // // Vérifier si l'utilisateur est connecté
+    // if (!isset($_SESSION['identifiant'])) {
+    //     header('Location: connexion.php');
+    //     exit();
+    // }
 
 ?>
 

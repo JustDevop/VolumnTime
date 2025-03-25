@@ -25,38 +25,39 @@
             <h2>Vérifiez et modifiez vos informations si nécessaire :</h2>
             <form action="creation_benevole.php" method="POST">
                 <div class="nom">
-                    <label for="nom">Nom</label>
+                    <label for="nom">Nom <span class="edit-btn" onclick="enableEdit('nom')">✏️</span></label>
                     <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($_POST['nom']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('nom')">✏️</span>
+                    
                 </div>
                 <div class="prenom">
-                    <label for="prenom">Prénom</label>
+                    <label for="prenom">Prénom <span class="edit-btn" onclick="enableEdit('prenom')">✏️</span></label>
                     <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('prenom')">✏️</span>
+                    
                 </div>
                 <div class="tel">
-                    <label for="telephone">Numéro de téléphone</label>
+                    <label for="telephone">Numéro de téléphone<span class="edit-btn" onclick="enableEdit('telephone')">✏️</span></label>
                     <input type="tel" id="telephone" name="telephone" pattern="\d{10}" maxlength="10" value="<?php echo htmlspecialchars($_POST['telephone']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('telephone')">✏️</span>
-                </div>
-                <div class="mail">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('email')">✏️</span>
+                    
                 </div>
                 <div class="id">
-                    <label for="identifiant">Identifiant</label>
+                    <label for="identifiant">Identifiant <span class="edit-btn" onclick="enableEdit('identifiant')">✏️</span></label>
                     <input type="text" id="identifiant" name="identifiant" value="<?php echo htmlspecialchars($_POST['identifiant']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('identifiant')">✏️</span>
+                    
                 </div>
+                <div class="mail">
+                    <label for="email">Email<span class="edit-btn" onclick="enableEdit('email')">✏️</span></label>
+                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>" required readonly class="readonly">
+                    
+                </div>
+                
                 <div class="sexe">
-                    <label for="sexe">Sexe</label>
+                    <label for="sexe">Genre<span class="edit-btn" onclick="enableEdit('sexe')">✏️</span></label>
                     <select id="sexe" name="sexe" required disabled class="readonly">
                         <option value="homme" <?php if ($_POST['sexe'] == 'homme') echo 'selected'; ?>>Homme</option>
                         <option value="femme" <?php if ($_POST['sexe'] == 'femme') echo 'selected'; ?>>Femme</option>
                         <option value="neutre" <?php if ($_POST['sexe'] == 'neutre') echo 'selected'; ?>>Neutre</option>
                     </select>
-                    <span class="edit-btn" onclick="enableEdit('sexe')">✏️</span>
+                    
                 </div>
                 <div class="centre">
                     <label for="interets">Centres d'intérêt</label>
@@ -85,28 +86,29 @@
                     </div>
                 </div>
                 <div class="ville">
-                    <label for="ville">Ville</label>
+                    <label for="ville">Ville<span class="edit-btn" onclick="enableEdit('ville')">✏️</span></label>
                     <input type="text" id="ville" name="ville" value="<?php echo htmlspecialchars($_POST['ville']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('ville')">✏️</span>
-                </div>
-                <div class="adresse">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" id="adresse" name="adresse" value="<?php echo htmlspecialchars($_POST['adresse']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('adresse')">✏️</span>
+                    
                 </div>
                 <div class="postal">
-                    <label for="postal">Code Postal</label>
+                    <label for="postal">Code Postal<span class="edit-btn" onclick="enableEdit('postal')">✏️</span></label>
                     <input type="number" id="postal" name="postal" value="<?php echo htmlspecialchars($_POST['postal']); ?>" required readonly class="readonly">
-                    <span class="edit-btn" onclick="enableEdit('postal')">✏️</span>
+                    
                 </div>
+                <div class="adresse">
+                    <label for="adresse">Adresse<span class="edit-btn" onclick="enableEdit('adresse')">✏️</span></label>
+                    <input type="text" id="adresse" name="adresse" value="<?php echo htmlspecialchars($_POST['adresse']); ?>" required readonly class="readonly">
+                    
+                </div>
+                
                 <div class="dispo">
-                    <label for="disponibilite">Disponibilité</label>
+                    <label for="disponibilite">Disponibilité<span class="edit-btn" onclick="enableEdit('disponibilite')">✏️</span></label>
                     <select id="disponibilite" name="disponibilite" required disabled class="readonly">
                         <option value="semaine" <?php if ($_POST['disponibilite'] == 'semaine') echo 'selected'; ?>>Semaine</option>
                         <option value="weekend" <?php if ($_POST['disponibilite'] == 'weekend') echo 'selected'; ?>>Week-end</option>
                         <option value="semaine_weekend" <?php if ($_POST['disponibilite'] == 'semaine_weekend') echo 'selected'; ?>>Semaine et Week-end</option>
                     </select>
-                    <span class="edit-btn" onclick="enableEdit('disponibilite')">✏️</span>
+                    
                 </div>
                 <?php if (isset($_POST['handicap_checkbox'])): ?>
                 <div class="handicap">
@@ -124,39 +126,6 @@
             </form>
         </div>
     </main>
-    <script>
-        function enableEdit(fieldId) {
-            if (fieldId === 'interets') {
-                var checkboxes = document.querySelectorAll('.centre1 input[type="checkbox"]');
-                checkboxes.forEach(function(checkbox) {
-                    checkbox.disabled = false;
-                    checkbox.classList.remove('readonly');
-                });
-            } else {
-                var field = document.getElementById(fieldId);
-                if (field.tagName === 'SELECT' || field.type === 'checkbox') {
-                    field.disabled = false;
-                    field.classList.remove('readonly');
-                } else {
-                    field.readOnly = false;
-                    field.classList.remove('readonly');
-                }
-            }
-        }
-
-        function toggleHandicapField() {
-            var handicapField = document.getElementById('handicap_field');
-            var descriptionHandicap = document.getElementById('description_handicap');
-            if (document.getElementById('handicap_checkbox').checked) {
-                handicapField.style.display = 'block';
-                descriptionHandicap.readOnly = false;
-                descriptionHandicap.classList.remove('readonly');
-            } else {
-                handicapField.style.display = 'none';
-                descriptionHandicap.readOnly = true;
-                descriptionHandicap.classList.add('readonly');
-            }
-        }
-    </script>
+    <script src="../Js/recap.js"></script>
 </body>
 </html>
