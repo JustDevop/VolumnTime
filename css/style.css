@@ -77,8 +77,8 @@ li {
     width: 2.8%;
     height: 2.8%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.5%;
+    margin-top: -9.9%;
+    margin-right: 4%;
 }
 
 /*ICONE LOUPE*/
@@ -175,7 +175,7 @@ h1 {
 h1 b {
     font-weight: normal;
     text-decoration: none;
-    color: #7ad6bc;
+    color: #ff8239;
 }
 
 .about > .texte > p {
@@ -185,6 +185,11 @@ h1 b {
     letter-spacing: 2px;
     text-align: justify;
     margin-left: 8.8%;
+}
+
+.about {
+    margin-top: -8%;
+    margin-left: 7%;
 }
 
 /*SECTION 2*/
@@ -223,4 +228,211 @@ h1 b {
     border-radius: 10px;
     width: 51%;
     float: right;
+}
+
+.illustration {
+    margin-top: -3.5%;
+    margin-right: 2%;
+}
+
+/* Styles pour la barre de recherche */
+.search-form {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    padding: 0;
+    margin: 0 0.5rem;
+    transition: width 0.5s;
+}
+
+.search-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    font-size: small;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.search-button {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.search-icon,
+.search-close {
+    position: absolute;
+    font-size: 2rem;
+    color: #ff8239;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search-close {
+    opacity: 0;
+}
+
+/* Active Search */
+.active-search {
+    max-width: 100%;
+    width: 25rem;
+}
+
+.active-search .search-button {
+    left: calc(100% - 2rem);
+}
+
+.active-search .search-input {
+    pointer-events: initial;
+    opacity: 1;
+}
+
+.active-search .search-close {
+    opacity: 1;
+}
+
+.active-search .search-icon {
+    opacity: 0;
+}
+
+/*Section Organisation*/
+.organisations {
+    margin-top: 8%;
+}
+
+.titre h2{
+    font-size: 400%;
+    font-family: Nightblows;
+    letter-spacing: 2px;
+    font-weight: 300; 
+    color: #b8f05f;
+    text-align: center;
+}
+
+.titre h2 b {
+    font-weight: normal;
+    text-decoration: none;
+    color: #ff8239;
+}
+
+.liste {
+    display: flex;
+    margin: 0.5rem auto;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.organisation {
+    width: 14%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.336);
+    padding: 0.8rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 1rem; /* Add margin to create equal spacing between boxes */
+}
+
+.organisation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.organisation img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 0.2rem;
+}
+
+.organisation h3 {
+    font-family: Neatly;
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+.organisation p {
+    font-family: Creato;
+    font-size: 0.9rem;
+    color: #666666;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*FOOTER*/
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 2rem 0;
+    font-family: Creato;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1, .links, .contact {
+    flex: 1;
+    margin: 0 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1 h3, .links h3, .contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #b8f05f;
+    font-family: Nightblows;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1 p, 
+.links a,
+.contact p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.links a:hover {
+    color: #ff8239;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #cccccc;
+    border-top: 1px solid #444444;
+    padding-top: 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
