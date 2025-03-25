@@ -1,5 +1,13 @@
 <?php
+    session_start();
     include '../include/connect_bdd.php'; // Fichier de configuration pour la connexion à la base de données
+
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION['identifiant'])) {
+        header('Location: connexion.php');
+        exit();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -12,11 +20,11 @@
 <body>
     <?php
 
-    $sql = "SELECT * FROM organisation";
+    $sql = "SELECT mission.titre FROM favoris_mission JOIN mission ON favoris_mission.id_mission=mission.id_mission";
     $requete = $db->prepare($sql);
     $requete->execute();
 
-    $association=$requete->fetchAll();
+    $mission=$requete->fetchAll();
 
     foreach($association as $associations){
         echo '<h1>'.$associations['nom'].'</h1>'; //nom de l'association
@@ -27,7 +35,11 @@
         echo '<p>Téléphone : '.$associations['telephone'].'</p>'; //contact 2 téléphone
         echo '<p> Site Web : '.$associations['site_web'].'</p>'; //contact 1 email
         echo '<p> Date de création : '.$associations['date_creation'].'</p>'; //date de création de l'association
+    print_r($mission);
+    foreach($mission as $missions){
 
+        echo '<p>'.$missions['titre'].'</p>';
+    
     }
     ?>
 </body>
