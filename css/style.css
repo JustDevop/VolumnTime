@@ -83,10 +83,14 @@ li {
 
 /*ICONE LOUPE*/
 .container {
-    position: relative;
+    width: 10%;
+    height: 10%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.8%;
+    margin-top: -10.7%;
+    margin-right: 2.3%;
+    cursor: pointer;
+    color: #ff8239;
+    position: relative;
 }
 
 .container form {
@@ -151,6 +155,12 @@ li {
 .container form:hover .fa {
     background: #ff8239;
     color: white;
+}
+
+.logo {
+    width: 8%;
+    height: auto;
+    margin: 20px;
 }
 
 /*FIN DU HEADER*/

@@ -35,8 +35,8 @@
         echo '<p>Téléphone : '.$associations['telephone'].'</p>'; //contact 2 téléphone
         echo '<p> Site Web : '.$associations['site_web'].'</p>'; //contact 1 email
         echo '<p> Date de création : '.$associations['date_creation'].'</p>'; //date de création de l'association
-    print_r($mission);
-    foreach($mission as $missions){
+    }
+        foreach($mission as $missions){
 
         echo '<p>'.$missions['titre'].'</p>';
     
