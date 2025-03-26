@@ -77,8 +77,8 @@ li {
     width: 2.8%;
     height: 2.8%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.5%;
+    margin-top: -9.9%;
+    margin-right: 4%;
 }
 
 /*ICONE LOUPE*/
@@ -86,12 +86,81 @@ li {
     width: 10%;
     height: 10%;
     float: right;
-    margin-top: 1%;
-    margin-right: 0.8%;
+    margin-top: -10.7%;
+    margin-right: 2.3%;
     cursor: pointer;
     color: #ff8239;
     position: relative;
-    z-index: 1000; /* Ensure the search bar is above other elements */
+}
+
+.container form {
+    position: relative;
+    transform: translate(0, 0);
+    transition: all 1s;
+    width: 45px; /* Ajusté pour correspondre à la taille de l'icône */
+    height: 45px; /* Ajusté pour correspondre à la taille de l'icône */
+    background: transparent;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: none;
+    padding: 5px;
+}
+
+.container input {
+    position: absolute;
+    top: 40%; /* Aligné avec la loupe */
+    left: 0;
+    width: 100%;
+    height: 45px; /* Ajusté pour correspondre à la taille du form */
+    transform: translateY(-50%);
+    line-height: 45px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 45px 0 20px;
+    font-family: Creato;
+}
+
+.container .fa {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 45px; /* Ajusté à 45px pour correspondre au form */
+    height: 45px;
+    position: absolute;
+    top: 45%; /* Gardé à 45% */
+    right: 0;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    color: #ff8239;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container form:hover {
+    width: 300px;
+    cursor: pointer;
+    transform: translate(0, 0);
+    background: white; /* Add this to make the search bar white when expanded */
+    border: 4px solid white; /* Add border when expanded */
+}
+
+.container form:hover input {
+    display: block;
+}
+
+.container form:hover .fa {
+    background: #ff8239;
+    color: white;
+}
+
+.logo {
+    width: 8%;
+    height: auto;
+    margin: 20px;
 }
 
 /*FIN DU HEADER*/
@@ -116,7 +185,7 @@ h1 {
 h1 b {
     font-weight: normal;
     text-decoration: none;
-    color: #7ad6bc;
+    color: #ff8239;
 }
 
 .about > .texte > p {
@@ -126,6 +195,11 @@ h1 b {
     letter-spacing: 2px;
     text-align: justify;
     margin-left: 8.8%;
+}
+
+.about {
+    margin-top: -8%;
+    margin-left: 7%;
 }
 
 /*SECTION 2*/
@@ -164,6 +238,11 @@ h1 b {
     border-radius: 10px;
     width: 51%;
     float: right;
+}
+
+.illustration {
+    margin-top: -3.5%;
+    margin-right: 2%;
 }
 
 /* Styles pour la barre de recherche */
@@ -205,7 +284,7 @@ h1 b {
 .search-icon,
 .search-close {
     position: absolute;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #ff8239;
     top: 50%;
     left: 50%;
@@ -237,4 +316,133 @@ h1 b {
 
 .active-search .search-icon {
     opacity: 0;
+}
+
+/*Section Organisation*/
+.organisations {
+    margin-top: 8%;
+}
+
+.titre h2{
+    font-size: 400%;
+    font-family: Nightblows;
+    letter-spacing: 2px;
+    font-weight: 300; 
+    color: #b8f05f;
+    text-align: center;
+}
+
+.titre h2 b {
+    font-weight: normal;
+    text-decoration: none;
+    color: #ff8239;
+}
+
+.liste {
+    display: flex;
+    margin: 0.5rem auto;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.organisation {
+    width: 14%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.336);
+    padding: 0.8rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 1rem; /* Add margin to create equal spacing between boxes */
+}
+
+.organisation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.organisation img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 0.2rem;
+}
+
+.organisation h3 {
+    font-family: Neatly;
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 0.4rem;
+}
+
+.organisation p {
+    font-family: Creato;
+    font-size: 0.9rem;
+    color: #666666;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*FOOTER*/
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 2rem 0;
+    font-family: Creato;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1, .links, .contact {
+    flex: 1;
+    margin: 0 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1 h3, .links h3, .contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #b8f05f;
+    font-family: Nightblows;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about1 p, 
+.links a,
+.contact p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.links a:hover {
+    color: #ff8239;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #cccccc;
+    border-top: 1px solid #444444;
+    padding-top: 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
 }

@@ -21,6 +21,10 @@
                     <label for="prenom">Prénom</label>
                     <input type="text" id="prenom" name="prenom" placeholder="Jeanker" required>
                 </div>
+                <div class="id">
+                    <label for="identifiant">Identifiant</label>
+                    <input type="text" id="identifiant" name="identifiant" placeholder="SylvainJeanker" required>
+                </div>
                 <div class="tel">
                     <label for="telephone">Numéro de téléphone</label>
                     <input type="tel" id="telephone" name="telephone" pattern="\d{10}" maxlength="10" placeholder="Ex:0612345678" required>
@@ -29,17 +33,14 @@
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="sylvain.jeanker@gmail.com" required>
                 </div>
-                <div class="id">
-                    <label for="identifiant">Identifiant</label>
-                    <input type="text" id="identifiant" name="identifiant" placeholder="SylvainJeanker" required>
-                </div>
                 <div class="mdp">
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="sexe">
-                    <label for="sexe">Sexe</label>
+                    <label for="sexe">Genre</label>
                     <select id="sexe" name="sexe" required>
+                        <option value="" disabled selected>Choisissez votre genre</option>
                         <option value="homme">Homme</option>
                         <option value="femme">Femme</option>
                         <option value="neutre">Neutre</option>
@@ -76,13 +77,13 @@
                     <label for="ville">Ville</label>
                     <input type="text" id="ville" name="ville" placeholder="Lille" required>
                 </div>
-                <div class="adresse">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" id="adresse" name="adresse" placeholder="Pl Augustin Laurent" required>
-                </div>
                 <div class="postal">
                     <label for="postal">Code Postal</label>
                     <input type="number" id="postal" name="postal" placeholder="59000" required>
+                </div>
+                <div class="adresse">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" placeholder="Pl Augustin Laurent" required>
                 </div>
                 <div class="dispo">
                     <label for="disponibilite">Disponibilité</label>

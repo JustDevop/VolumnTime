@@ -28,13 +28,10 @@
             <img class="iconeProfil" src="asset/icones/icone-profil.png">
         </div>
         <div class="container">
-            <form action="" class="search-form">
-                <input type="text" placeholder="Type to search" class="search-input" />
-                <div class="search-button">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <i class="fa-solid fa-xmark search-close"></i>
-                </div>
-            </form>
+            <form action="">
+                <input type="search" placeholder="Recherchez ici">
+                <img src="asset/icones/icone-loupe.png" class="fa"> <!-- Remplacez la classe fa par votre image -->
+    </form>
         </div>
     </header>
 
@@ -67,6 +64,78 @@
     </section>
     
     <script src="Js/menuhamburger.js"></script>
-    <script src="Js/recherche.js"></script>
+    <script src="js/recherche.js"></script>
 </body>
 </html>
+
+<!-- /*ICONE LOUPE*/
+.container {
+    position: relative;
+    float: right;
+    margin-top: 1%;
+    margin-right: 0.8%;
+}
+
+.container form {
+    position: relative;
+    transform: translate(0, 0);
+    transition: all 1s;
+    width: 45px; /* Ajusté pour correspondre à la taille de l'icône */
+    height: 45px; /* Ajusté pour correspondre à la taille de l'icône */
+    background: transparent;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: none;
+    padding: 5px;
+}
+
+.container input {
+    position: absolute;
+    top: 40%; /* Aligné avec la loupe */
+    left: 0;
+    width: 100%;
+    height: 45px; /* Ajusté pour correspondre à la taille du form */
+    transform: translateY(-50%);
+    line-height: 45px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 45px 0 20px;
+    font-family: Creato;
+}
+
+.container .fa {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 45px; /* Ajusté à 45px pour correspondre au form */
+    height: 45px;
+    position: absolute;
+    top: 45%; /* Gardé à 45% */
+    right: 0;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    color: #ff8239;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container form:hover {
+    width: 300px;
+    cursor: pointer;
+    transform: translate(0, 0);
+    background: white; /* Add this to make the search bar white when expanded */
+    border: 4px solid white; /* Add border when expanded */
+}
+
+.container form:hover input {
+    display: block;
+}
+
+.container form:hover .fa {
+    background: #ff8239;
+    color: white;
+} -->

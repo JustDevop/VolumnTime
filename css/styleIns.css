@@ -36,17 +36,42 @@ header {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 1200px;
     margin-top: 20px; /* Ajout d'une marge supérieure pour descendre le formulaire */
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-.nom, .prenom, .tel, .mail, .id, .mdp, .sexe, .centre, .ville, .adresse, .postal, .dispo, .handicap, .descriptionHandi {
-    margin-bottom: 15px;
+.nom, .prenom, .tel, .id {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+}
+
+/* Champs qui prennent toute la largeur */
+.mail, .mdp, .sexe, .centre, .adresse, .descriptionHandi, .dispo {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+}
+
+/* Groupes de champs côte à côte */
+.ville, .postal {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+}
+
+/* Espacement et alignement pour les centres d'intérêt */
+.centre1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
 }
 
 label {
@@ -68,6 +93,14 @@ label {
     align-items: center;
     justify-content: flex-start;
     text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.centre1 input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
 }
 
 h1 {
@@ -102,6 +135,7 @@ button.btn, a.btn {
     transition: background-color 0.3s ease;
     display: block;
     margin-top: 10px;
+    grid-column: span 2;
 }
 
 button.btn:hover, a.btn:hover {
@@ -111,6 +145,7 @@ button.btn:hover, a.btn:hover {
 p {
     text-align: center;
     margin-top: 20px;
+    grid-column: span 2;
 }
 
 p a {
@@ -121,4 +156,3 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
-

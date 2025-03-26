@@ -5,6 +5,7 @@ html, body {
     height: 100%; /* Assurez-vous que le body prend toute la hauteur */
 }
 
+
 /*POLICE*/
 @font-face { 
     font-family: Creato;
@@ -31,21 +32,22 @@ body {
 }
 
 header {
-    width: 100%;
-    background-color: #ff8239; /* Changement de la couleur de fond */
-    color: white; /* Changement de la couleur du texte */
-    padding: 20px 0;
+    /* width: 100%; 
+    padding: 20px 0; */
     text-align: center;
+    margin-bottom: 20px;
 }
 
 h1 {
-    margin: 0;
-    font-size: 2.5em; /* Augmentation de la taille de la police */
-    font-family: Nightblows; /* Utilisation de la police Nightblows */
+    font-size: 400%;
+    font-family: Nightblows;
+    letter-spacing: 2px;
+    font-weight: 300; 
+    color: #ff8239;
 }
 
 .main {
-    background-color: white; /* Changement de la couleur de fond */
+    background-color: #eee; /* Changement de la couleur de fond */
     padding: 30px; /* Augmentation du padding */
     border-radius: 10px; /* Augmentation du border-radius */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Augmentation de l'ombre */
@@ -63,6 +65,7 @@ h1 {
 .form-group {
     flex: 1;
     margin-right: 10px;
+    grid-column: span 2; /* Ajout de cette ligne pour que le bouton prenne toute la largeur */
 }
 
 .form-group:last-child {
@@ -87,7 +90,8 @@ h1 {
 
 .form-group .btn {
     display: block;
-    margin: 20px auto; /* Centrer le bouton */
+    width: 100%; /* S'assure que le bouton prend toute la largeur */
+    margin: 20px auto;
     padding: 10px 20px;
     background-color: #ff8239; /* Couleur de fond du bouton */
     color: white; /* Couleur du texte du bouton */
@@ -113,5 +117,147 @@ h1 {
 
 .checkbox-group label {
     font-weight: normal; /* Enlever le gras */
+}
+
+.formRecap {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+    margin-top: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #ff8239;
+    font-family: Creato;
+    letter-spacing: 1px;
+}
+
+/* Styles de la boîte d'inscription */
+.formIns {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px; /* Ajout d'une marge supérieure pour descendre le formulaire */
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.nom, .prenom, .tel, .mail, .id, .mdp, .sexe, .centre, .ville, .adresse, .postal, .dispo, .handicap, .descriptionHandi {
+    margin-bottom: 15px;
+}
+
+.nom, .prenom, .tel, .id {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+}
+
+.mail, .sexe, .centre, .adresse, .dispo, .descriptionHandi {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+}
+
+.ville, .postal {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1;
+}
+
+.centre p {
+    float: left;
+    font-size: 14.5px;
+    margin: 0;
+    padding: 0;
+}
+
+.centre1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.centre1 p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.centre1 input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Assurez-vous que les champs remplissent la largeur */
+}
+
+select[multiple] {
+    height: auto;
+}
+
+button.btn, a.btn {
+    padding: 10px;
+    background-color: #ff8239;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 10px;
+    grid-column: span 2;
+    width: 100%;
+}
+
+button.btn:hover, a.btn:hover {
+    background-color: #e67333;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p a {
+    color: #ff8239;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour les champs en lecture seule */
+.readonly {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+/* Style pour les boutons d'édition */
+.edit-btn {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.2em;
 }
 
