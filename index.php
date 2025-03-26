@@ -24,9 +24,10 @@
             <span class="hamburger">☰</span>
             <ul>
                 <li><a href="php/associationGlobal.php">Associations</a></li>
+                <li><a href="php/mission.php">Missions</a></li>
                 <li><a href="php/conversation.php">Discussions</a></li>
-                <li><a href="php/favoris.php">Favoris</a></li>
-                <li><a href="php/dashboard.php">Contacts</a></li>
+                <li><a href="php/contact.php">Contacts</a></li>
+                <li><a href="php/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
         <div class="profil">

@@ -238,79 +238,8 @@ li {
     opacity: 0;
 }
 
-.add-contact {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 19%; /* Ajuster la position à droite */
-    top: 28%;
-}
+/*ASSOCIATIONS*/
 
-.add-contact img {
-    width: 25px;
-    height: 25px;
-}
-
-.add-contact:hover img {
-    filter: brightness(0.8); /* Assombrir l'image au survol */
-}
-
-/*Liste contact*/
-.listecontact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 150px; /* Ajouter une marge supérieure de 150px */
-}
-
-.listecontact p {
-    background-color: #eee;
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    width: 60%;
-    color: #ff8239;
-    font-family: Arial, sans-serif;
-    font-size: 1.2em;
-    transition: background-color .3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout de l'ombre */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.listecontact p .icons {
-    display: flex;
-    gap: 10px; /* Espace entre les images */
-    margin-left: auto; /* Aligner à droite */
-}
-
-.listecontact p .icons img {
-    width: 20px; /* Ajustez la largeur de l'image */
-    height: 20px; /* Ajustez la hauteur de l'image */
-}
-
-.listecontact p:hover {
-    background-color: #fab77d;
-    color: #fff;
-}
-
-.listecontact p:hover .icons img.une {
-    content: url('../asset/icones/messager-blanc.png'); /* Chemin de l'image blanche */
-}
-
-.listecontact p:hover .icons img:not(.une) {
-    content: url('../asset/icones/icone-profil-blanc.png'); /* Chemin de l'image blanche */
-}
-
-.listecontact .icons .une {
-    margin-top: 1.5px;
-}
 
 /*FOOTER*/
 footer {

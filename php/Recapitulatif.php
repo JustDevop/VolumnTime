@@ -1,3 +1,12 @@
+<?php
+// Ajouter ces lignes au tout début du fichier recapitulatif.php
+session_start();
+
+// Stocker le mot de passe haché en session s'il vient du formulaire d'inscription
+if (isset($_POST['password'])) {
+    $_SESSION["password"] = sha1($_POST['password']);
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

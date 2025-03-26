@@ -35,6 +35,16 @@ $messages = $result->fetch_all(MYSQLI_ASSOC);
 <body>
     <header>
         <h1>Conversation</h1>
+        <nav class="burger">
+            <span class="hamburger">☰</span>
+            <ul>
+                <li><a href="associationGlobal.php">Associations</a></li>
+                <li><a href="mission.php">Missions</a></li>
+                <li><a href="conversation.php">Discussions</a></li>
+                <li><a href="contact.php">Contacts</a></li>
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <h2>Messages</h2>
