@@ -20,24 +20,26 @@
 <body>
     <header>
         <img class="logo" src="asset/logo/logo-voluntime_version-finale.png" alt="logo volunTime">
-        <nav class="burger">
-            <span class="hamburger">☰</span>
-            <ul>
-                <li><a href="php/associationGlobal.php">Associations</a></li>
-                <li><a href="php/mission.php">Missions</a></li>
-                <li><a href="php/conversation.php">Discussions</a></li>
-                <li><a href="php/contact.php">Contacts</a></li>
-                <li><a href="php/deconnexion.php">Déconnexion</a></li>
-            </ul>
-        </nav>
-        <div class="profil">
-            <img class="iconeProfil" src="asset/icones/icone-profil.png">
-        </div>
-        <div class="container">
-            <form action="">
-                <input type="search" placeholder="Recherchez ici">
-                <img src="asset/icones/icone-loupe.png" class="fa"> 
-    </form>
+        <div class="header-right">
+            <nav class="burger">
+                <span class="hamburger">☰</span>
+                <ul>
+                    <li><a href="php/associationGlobal.php">Associations</a></li>
+                    <li><a href="php/mission.php">Missions</a></li>
+                    <li><a href="php/conversation.php">Discussions</a></li>
+                    <li><a href="php/contact.php">Contacts</a></li>
+                    <li><a href="php/deconnexion.php">Déconnexion</a></li>
+                </ul>
+            </nav>
+            <div class="container">
+                <form action="">
+                    <input type="search" placeholder="Recherchez ici">
+                    <img src="asset/icones/icone-loupe.png" class="fa">
+                </form>
+            </div>
+            <div class="profil">
+                <img class="iconeProfil" src="asset/icones/icone-profil.png">
+            </div>
         </div>
     </header>
 

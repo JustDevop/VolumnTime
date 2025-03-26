@@ -21,6 +21,23 @@ html, body {
 }
 
 /*HEADER*/
+/* Nouvelle structure du header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px; /* Réduit de 10px à 5px */
+    margin-top: -5px; /* Ajoute une marge négative */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre les éléments */
+    margin-right: 20px;
+    margin-top: -5px; /* Ajoute une marge négative */
+}
+
 /*MENU BURGER*/
 ul {
     display: none;
@@ -37,7 +54,8 @@ ul {
 .burger {
     position: relative;
     display: block;
-    float: right;
+    float: none; /* Retiré le float */
+    order: 3; /* Ceci place le burger à droite */
 }   
 
 li {
@@ -64,8 +82,9 @@ li {
     display: block;
     font-size: 30px;
     cursor: pointer;
-    padding: 10px;
+    padding: 5px 10px; /* Réduit le padding */
     color: #ff8239;
+    margin-top: 0; /* Supprime les marges */
 }
 
 .show-menu {
@@ -73,20 +92,24 @@ li {
 }
 
 /*ICONE PROFIL*/
+.profil {
+    position: relative;
+    order: 2; /* Ceci place le profil au milieu */
+}
+
 .iconeProfil {
-    width: 2.8%;
-    height: 2.8%;
-    float: right;
-    margin-top: -9.9%;
-    margin-right: 4%;
+    width: 35px; /* Taille fixe au lieu de pourcentage */
+    height: 35px; /* Taille fixe au lieu de pourcentage */
+    float: none; /* Retiré le float */
+    margin: 0; /* Retiré les marges négatives */
 }
 
 /*ICONE LOUPE*/
 .container {
     position: relative;
-    float: right;
-    margin-top: 1%;
-    margin-right: 0.8%;
+    float: none; /* Retiré le float */
+    margin: 0; /* Retiré les marges */
+    order: 1; /* Ceci place la recherche à gauche */
 }
 
 .container form {
@@ -100,6 +123,7 @@ li {
     border-radius: 25px;
     border: none;
     padding: 5px;
+    margin-top: 0; /* Supprime les marges */
 }
 
 .container input {
@@ -156,7 +180,13 @@ li {
 .logo {
     width: 8%;
     height: auto;
-    margin: 20px;
+    margin: 10px; /* Réduit de 20px à 10px */
+}
+
+/* Ajustements du menu burger au hover */
+.burger ul {
+    right: 0; /* Aligné à droite plutôt qu'à gauche */
+    left: auto; /* Désactiver l'alignement gauche par défaut */
 }
 
 /*FIN DU HEADER*/
