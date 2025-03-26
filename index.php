@@ -24,24 +24,23 @@
             <span class="hamburger">☰</span>
             <ul>
                 <li><a href="php/associationGlobal.php">Associations</a></li>
+                <li><a href="php/mission.php">Missions</a></li>
                 <li><a href="php/conversation.php">Discussions</a></li>
-                <li><a href="php/favoris.php">Favoris</a></li>
-                <li><a href="php/dashboard.php">Contacts</a></li>
+                <li><a href="php/contact.php">Contacts</a></li>
+                <li><a href="php/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
         <div class="profil">
             <img class="iconeProfil" src="asset/icones/icone-profil.png">
         </div>
         <div class="container">
-            <form action="" class="search-form">
-                <input type="text" placeholder="Type to search" class="search-input" />
-                <div class="search-button">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <i class="fa-solid fa-xmark search-close"></i>
-                </div>
-            </form>
+            <form action="">
+                <input type="search" placeholder="Recherchez ici">
+                <img src="asset/icones/icone-loupe.png" class="fa"> 
+    </form>
         </div>
     </header>
+
 
     <section class="about">
         <div class="titre">
