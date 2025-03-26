@@ -77,7 +77,7 @@
                     <h3><?= $organisation['nom'] ?></h3>
                     <p><?= $organisation['description'] ?></p>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach; ?>  
         </div>
 
     <section class="illustration">
