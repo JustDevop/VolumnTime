@@ -153,5 +153,26 @@
             }
         });
     </script>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="about1">
+                <h3>À propos</h3>
+                <p>VolunTime est une plateforme dédiée à connecter les bénévoles et les associations pour un impact positif.</p>
+            </div>
+            <div class="links">
+                <h3>Liens utiles</h3>
+                <a href="https://www.associations.gouv.fr/" target=__blank>Associations.gouv.fr</a>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Email : support@voluntime.com</p>
+                <p>Téléphone : +33 1 23 45 67 89</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <?= date('Y') ?> VolunTime. Tous droits réservés.</p>
+        </div>
+    </footer>
 </body>
 </html>
